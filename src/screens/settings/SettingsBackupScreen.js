@@ -6,6 +6,7 @@ import { createBackup, restoreBackup } from '../../services/backup/v1/backup';
 
 import { useTheme } from '@hooks/useTheme';
 import { Appbar, List } from '@components';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const BackupSettings = ({ navigation }) => {
   const theme = useTheme();
@@ -20,28 +21,30 @@ const BackupSettings = ({ navigation }) => {
         />
         <List.Section>
           <List.SubHeader theme={theme}>Backup</List.SubHeader>
-          <List.Item
-            title="Create backup"
-            description="Can be used to restore current library"
-            onPress={createBackup}
-            theme={theme}
-          />
-          <List.Item
-            title="Restore backup"
-            description="Restore library from backup file"
-            onPress={restoreBackup}
-            theme={theme}
-          />
-          <List.InfoItem
-            title="Restoring large backups may freeze the app until restoring is finished"
-            icon="information-outline"
-            theme={theme}
-          />
-          <List.InfoItem
-            title="Create backup may not work on devices with Android 9 or lower."
-            icon="information-outline"
-            theme={theme}
-          />
+          <ScrollView>
+            <List.Item
+              title="Create backup"
+              description="Can be used to restore current library"
+              onPress={createBackup}
+              theme={theme}
+            />
+            <List.Item
+              title="Restore backup"
+              description="Restore library from backup file"
+              onPress={restoreBackup}
+              theme={theme}
+            />
+            <List.InfoItem
+              title="Restoring large backups may freeze the app until restoring is finished"
+              icon="information-outline"
+              theme={theme}
+            />
+            <List.InfoItem
+              title="Create backup may not work on devices with Android 9 or lower."
+              icon="information-outline"
+              theme={theme}
+            />
+          </ScrollView>
         </List.Section>
       </ScreenContainer>
     </>

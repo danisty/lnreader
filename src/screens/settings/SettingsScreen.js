@@ -5,6 +5,7 @@ import { Appbar, List } from '@components';
 import { useTheme } from '@hooks/useTheme';
 
 import { getString } from '@strings/translations';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const SettingsScreen = ({ navigation }) => {
   const theme = useTheme();
@@ -12,7 +13,7 @@ const SettingsScreen = ({ navigation }) => {
   return (
     <>
       <Appbar title="Settings" handleGoBack={navigation.goBack} theme={theme} />
-      <View style={{ flex: 1, backgroundColor: theme.background }}>
+      <ScrollView style={{ flex: 1, backgroundColor: theme.background }}>
         <List.Item
           title={getString('moreScreen.settingsScreen.generalSettings')}
           icon="tune"
@@ -83,7 +84,7 @@ const SettingsScreen = ({ navigation }) => {
           }
           theme={theme}
         />
-      </View>
+      </ScrollView>
     </>
   );
 };
